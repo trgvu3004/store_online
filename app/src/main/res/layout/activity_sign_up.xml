@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:maxHeight="100dp"
-            android:text="@string/txt_welcome"
+            android:text="@string/txt_sign_up_baner"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -35,16 +35,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_weight="4"
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_weight="4"
         android:background="@drawable/bg_corner_liner_sign_in"
         android:gravity="center"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/edt_sign_in_phone"
+            android:id="@+id/edt_sign_up_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -59,7 +59,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edt_sign_in_password"
+            android:id="@+id/edt_sign_up_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -67,6 +67,22 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_edt_sign_in"
             android:hint="@string/hint_pass"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textSize="20sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/edt_sign_up_re_enter_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_edt_sign_in"
+            android:hint="@string/hint_re_enter_pass"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:minHeight="48dp"
@@ -75,35 +91,13 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <Button
-            android:id="@+id/btn_sign_in"
+            android:id="@+id/btn_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_corner_btn_sign_in"
-            android:text="@string/hint_pass"
+            android:text="@string/txt_sign_up"
             android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no_account" />
-
-            <TextView
-                android:id="@+id/txt_sign_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sign_up"
-                android:textColor="@color/edt_corner_bg"
-                android:textSize="15sp" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
