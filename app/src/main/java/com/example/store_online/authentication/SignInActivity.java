@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
+import com.example.store_online.dialog.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,6 +23,7 @@ public class SignInActivity extends AppCompatActivity {
     private Button btnSignIn;
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
+    private LoadingDialog loadingDialog;
 
 
     @Override
@@ -30,6 +32,9 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         //init Firebase
         mAuth = FirebaseAuth.getInstance();
+        //init
+        loadingDialog = new LoadingDialog(SignInActivity.this);
+
         mapping();
         setEvent();
     }
@@ -38,7 +43,7 @@ public class SignInActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signUp();
+                signIn();
             }
         });
         txtSignUp.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +54,7 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
-    private void signUp() {
+    private void signIn() {
         String email = edtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
         if (email.isEmpty()) {
@@ -57,10 +62,12 @@ public class SignInActivity extends AppCompatActivity {
         } else if (password.isEmpty()) {
             edtPassword.setError("Email is not empty!");
         } else {
+            loadingDialog.startLoadingDialog();
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        loadingDialog.endLoadingDialog();
                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     } else {
 
