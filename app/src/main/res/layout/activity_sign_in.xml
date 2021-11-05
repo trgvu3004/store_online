@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_corner_btn_sign_in"
-            android:text="@string/hint_pass"
+            android:text="@string/txt_sign_in"
             android:textColor="@color/white" />
 
         <LinearLayout

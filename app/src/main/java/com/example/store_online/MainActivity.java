@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private ViewPagerAdapter adapter;
     private ViewPager2 viewPager2;
+    private int CURRENT_FRAGMENT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         bottomNavigationView.getMenu().findItem(R.id.menu_home_page).setChecked(true);
+                        CURRENT_FRAGMENT = 0;
                         break;
                     case 1:
                         bottomNavigationView.getMenu().findItem(R.id.menu_category).setChecked(true);
+                        CURRENT_FRAGMENT = 1;
                         break;
                     case 2:
                         bottomNavigationView.getMenu().findItem(R.id.menu_account).setChecked(true);
+                        CURRENT_FRAGMENT = 2;
                         break;
                 }
             }
@@ -73,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menu_home_page:
                        viewPager2.setCurrentItem(0);
+                       getSupportActionBar().setTitle(R.string.app_name);
                         break;
                     case R.id.menu_category:
                         viewPager2.setCurrentItem(1);
@@ -89,5 +95,20 @@ public class MainActivity extends AppCompatActivity {
     private void mapping() {
         viewPager2=findViewById(R.id.view_page_main);
         bottomNavigationView=findViewById(R.id.navigation_bottom);
+    }
+
+    @Override
+    public void onBackPressed() {
+        switch (CURRENT_FRAGMENT){
+            case 0:
+                finishAffinity();
+                break;
+            case 1:
+                viewPager2.setCurrentItem(0);
+                break;
+            case 2:
+                viewPager2.setCurrentItem(1);
+                break;
+        }
     }
 }
