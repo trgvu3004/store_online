@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/edt_corner_bg"
+    android:background="@color/colorCyan"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".authentication.SignInActivity">
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_sign_up"
-                android:textColor="@color/edt_corner_bg"
+                android:textColor="@color/colorCyan"
                 android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>

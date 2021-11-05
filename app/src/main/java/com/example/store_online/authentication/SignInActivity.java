@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
+import com.example.store_online.dialog.ErrorDialog;
 import com.example.store_online.dialog.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,8 @@ public class SignInActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
     private LoadingDialog loadingDialog;
+    private ErrorDialog errorDialog;
+    private String MESSAGE_SIGN_IN_ERROR = "Incorrect account or password!";
 
 
     @Override
@@ -32,9 +35,9 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         //init Firebase
         mAuth = FirebaseAuth.getInstance();
-        //init
+        //init dialog
         loadingDialog = new LoadingDialog(SignInActivity.this);
-
+        errorDialog = new ErrorDialog(this);
         mapping();
         setEvent();
     }
@@ -69,8 +72,9 @@ public class SignInActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         loadingDialog.endLoadingDialog();
                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                        finishAffinity();
                     } else {
-
+                        errorDialog.startErrorDialog(MESSAGE_SIGN_IN_ERROR);
                     }
                 }
             });

@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
+import com.example.store_online.dialog.ErrorDialog;
 import com.example.store_online.dialog.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,10 +20,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
-    private  Button btnSignUp;
-    private EditText edtEmail,edtPassword,edtRe_enterPassword;
+    private Button btnSignUp;
+    private EditText edtEmail, edtPassword, edtRe_enterPassword;
     private FirebaseAuth mAuth;
     private LoadingDialog loadingDialog;
+    private ErrorDialog errorDialog;
+    private String MESSAGE_SIGN_UP_ERROR = "Please double check your email address or password!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,10 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //inti Firebase
-        mAuth=FirebaseAuth.getInstance();
-        //inti loading dialog
-        loadingDialog=new LoadingDialog(SignUpActivity.this);
+        mAuth = FirebaseAuth.getInstance();
+        //inti dialog
+        loadingDialog = new LoadingDialog(SignUpActivity.this);
+        errorDialog = new ErrorDialog(this);
         //mapping
         mapping();
         //event
@@ -49,27 +53,27 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUp() {
-        String email=edtEmail.getText().toString().trim();
-        String password=edtPassword.getText().toString().trim();
-        String repassword=edtRe_enterPassword.getText().toString().trim();
-        if(email.isEmpty()){
+        String email = edtEmail.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+        String repassword = edtRe_enterPassword.getText().toString().trim();
+        if (email.isEmpty()) {
             edtEmail.setError("Email is not empty!");
-        }else if(password.isEmpty()){
+        } else if (password.isEmpty()) {
             edtPassword.setError("Email is not empty!");
-        }else if(repassword.isEmpty()){
+        } else if (repassword.isEmpty()) {
             edtRe_enterPassword.setError("Email is not empty!");
-        }else if (!password.equalsIgnoreCase(repassword)){
-           edtRe_enterPassword.setError("Re-enter password does not match!");
-        }else {
+        } else if (!password.equalsIgnoreCase(repassword)) {
+            edtRe_enterPassword.setError("Re-enter password does not match!");
+        } else {
             loadingDialog.startLoadingDialog();
-            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         loadingDialog.endLoadingDialog();
                         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                    }else {
-
+                    } else {
+                        errorDialog.startErrorDialog(MESSAGE_SIGN_UP_ERROR);
                     }
                 }
             });
@@ -77,9 +81,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void mapping() {
-        btnSignUp=findViewById(R.id.btn_sign_up);
-        edtEmail=findViewById(R.id.edt_sign_up_email);
-        edtPassword=findViewById(R.id.edt_sign_up_password);
-        edtRe_enterPassword=findViewById(R.id.edt_sign_up_re_enter_password);
+        btnSignUp = findViewById(R.id.btn_sign_up);
+        edtEmail = findViewById(R.id.edt_sign_up_email);
+        edtPassword = findViewById(R.id.edt_sign_up_password);
+        edtRe_enterPassword = findViewById(R.id.edt_sign_up_re_enter_password);
     }
 }
