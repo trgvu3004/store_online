@@ -15,7 +15,7 @@ import com.example.store_online.R;
 public class SignInActivity extends AppCompatActivity {
     private TextView txtSignUp;
     private  Button btnSignIn;
-    private EditText edtPhone,edtPassword;
+    private EditText edtEmail,edtPassword;
 
 
     @Override
@@ -42,7 +42,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private void mapping() {
         txtSignUp=findViewById(R.id.txt_sign_up);
-        edtPhone=findViewById(R.id.edt_sign_in_phone);
+        edtEmail=findViewById(R.id.edt_sign_in_email);
         edtPassword=findViewById(R.id.edt_sign_in_password);
         btnSignIn=findViewById(R.id.btn_sign_in);
     }

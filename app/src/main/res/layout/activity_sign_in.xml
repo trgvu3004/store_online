@@ -28,7 +28,7 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/ic_store" />
     </LinearLayout>
@@ -44,16 +44,16 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/edt_sign_in_phone"
+            android:id="@+id/edt_sign_in_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_edt_sign_in"
-            android:hint="@string/hint_phone"
+            android:hint="@string/hint_email"
             android:imeOptions="actionNext"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textSize="20sp" />

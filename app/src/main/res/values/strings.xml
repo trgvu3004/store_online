@@ -2,7 +2,7 @@
     <string name="app_name">420 Store</string>
     <string name="hint_pass">Password</string>
     <string name="hint_re_enter_pass">Re-enter Password</string>
-    <string name="hint_phone">Phone</string>
+    <string name="hint_email">Email</string>
     <string name="txt_sign_in">Sign In</string>
     <string name="txt_sign_up">Sign Up</string>
     <string name="txt_no_account">You do not have an account? </string>

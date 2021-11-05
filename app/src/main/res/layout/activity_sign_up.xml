@@ -44,16 +44,16 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/edt_sign_up_phone"
+            android:id="@+id/edt_sign_up_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_edt_sign_in"
-            android:hint="@string/hint_phone"
+            android:hint="@string/hint_email"
             android:imeOptions="actionNext"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textSize="20sp" />
@@ -95,6 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/bg_corner_btn_sign_in"
             android:text="@string/txt_sign_up"
             android:textColor="@color/white" />
