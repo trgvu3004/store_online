@@ -38,7 +38,7 @@
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:background="@drawable/bg_corner_liner_sign_in"
         android:gravity="center"
         android:orientation="vertical">
@@ -52,7 +52,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_edt_sign_in"
             android:hint="@string/hint_email"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/colorSilver"
             android:imeOptions="actionNext"
             android:textColor="@color/black"
             android:inputType="textEmailAddress"
@@ -69,7 +69,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_edt_sign_in"
             android:hint="@string/hint_pass"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/colorSilver"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:textColor="@color/black"
@@ -82,7 +82,7 @@
             android:id="@+id/btn_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/bg_corner_btn_sign_in"
             android:text="@string/txt_sign_in"
             android:textColor="@color/white" />
@@ -114,21 +114,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_weight="3"
         android:gravity="center">
-       <com.google.android.material.floatingactionbutton.FloatingActionButton
-           android:id="@+id/btn_Google"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:backgroundTint="@color/white"
-           android:src="@drawable/ic_google_100"/>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_Facebook"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btnFacebookSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_fb_100"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
     </LinearLayout>
 </LinearLayout>
