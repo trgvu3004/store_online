@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_line_textview_sign_in_with.xml" value="0.17735042735042736" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_sign_in.xml" value="0.18" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_sign_up.xml" value="0.1641025641025641" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_error.xml" value="0.1641025641025641" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_loading.xml" value="0.1641025641025641" />
         <entry key="..\:/AndroidStudioProject/store_online/app/src/main/res/drawable/bg_corner_btn.xml" value="0.17735042735042736" />
         <entry key="..\:/AndroidStudioProject/store_online/app/src/main/res/drawable/bg_corner_btn_sign_in.xml" value="0.17735042735042736" />
         <entry key="..\:/AndroidStudioProject/store_online/app/src/main/res/drawable/bg_corner_button_dialog.xml" value="0.17735042735042736" />

@@ -12,8 +12,8 @@
     <string name="menu_category">Category</string>
     <string name="menu_account">Acount</string>
     <string name="menu_setting">Setting</string>
-    <string name="title_">Setting</string>
     <string name="setting_sign_out">Sign Out</string>
+    <string name="sign_in_with">with</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
