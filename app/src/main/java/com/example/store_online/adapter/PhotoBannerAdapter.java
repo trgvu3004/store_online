@@ -1,0 +1,1 @@
+package com.example.store_online.adapter;import android.view.View;import androidx.annotation.NonNull;import androidx.recyclerview.widget.RecyclerView;public class PhotoBannerAdapter {    public class PhotoHolder extends RecyclerView.ViewHolder{        public PhotoHolder(@NonNull View itemView) {            super(itemView);        }    }}
