@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">420 Store</string>
     <!--Hint-->
     <string name="hint_pass">Mật khẩu</string>
@@ -14,14 +14,17 @@
     <string name="menu_home_page">Trang chủ</string>
     <string name="menu_category">Danh mục</string>
     <string name="menu_account">Tài khoản</string>
-    <string name="menu_setting">Cài đặt</string>
+    <string name="menu_setting">Cài Đặt</string>
     <string name="menu_cart">Giỏ hàng</string>
     <string name="menu_notification">Thông báo</string>
     <string name="menu_search">Tìm kiếm</string>
     <!--Setting-->
     <string name="setting_sign_out">Đăng xuất</string>
+    <string name="setting_title" tools:ignore="ExtraTranslation">Cài Đặt</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">1003858493882103</string>
     <string name="fb_login_protocol_scheme">fb1003858493882103</string>
+
 </resources>

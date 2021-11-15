@@ -13,11 +13,11 @@
         android:theme="@style/Theme.Store_online">
         <activity
             android:name=".profile.SettingActivity"
+            android:theme="@style/ThemeNoActioBar"
             android:exported="false" />
         <activity
             android:name=".authentication.SignUpActivity"
-            android:exported="false"
-            android:parentActivityName=".authentication.SignInActivity" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
