@@ -48,5 +48,6 @@
     <string name="txt_add_email">Thêm email</string>
     <string name="txt_password_change">Đổi mật khẩu</string>
     <string name="txt_password_reset">Quên mật khẩu</string>
+    <string name="account_Information">Thông tin tài khoản</string>
 
 </resources>
