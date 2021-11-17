@@ -54,5 +54,10 @@
     <string name="field_do_not_match">Mật khẩu không khớp!</string>
     <string name="reAuthentication">Mật khẩu hiện tại không đúng!</string>
     <string name="PasswordChangeFailed">Đổi mật khẩu không thành công!</string>
+    <string name="sendEmailFailed">Gửi email đặt lại mật khẩu không thành công!</string>
+    <string name="close">Đóng</string>
+    <string name="successful">Thành công</string>
+    <string name="error">Lỗi</string>
+    <string name="sendEmailSuccess">Gửi email đặt lại mật khẩu thành công. Vui lòng kiểm tra email!</string>
 
 </resources>

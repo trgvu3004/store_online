@@ -12,4 +12,5 @@
     <color name="colorRed">#CC0000</color>
     <color name="colorWarning">#FFCC00</color>
     <color name="colorSilver">#C0C0C0</color>
+    <color name="colorSuccess">#07cc65</color>
 </resources>

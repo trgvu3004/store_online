@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
-import com.example.store_online.dialog.ErrorDialog;
+import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.LoadingDialog;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -22,7 +22,6 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -44,7 +43,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
     private LoadingDialog loadingDialog;
-    private ErrorDialog errorDialog;
+    private NotificationDialog notificationDialog;
     private FloatingActionButton btnGoogle;
     private String MESSAGE_SIGN_IN_ERROR = "Incorrect account or password!";
     private GoogleSignInClient mGoogleSignInClient;
@@ -65,7 +64,7 @@ public class SignInActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         //init dialog
         loadingDialog = new LoadingDialog(SignInActivity.this);
-        errorDialog = new ErrorDialog(this);
+        notificationDialog = new NotificationDialog(this);
         //
         requestGoogle();
         requestFacebook();
@@ -115,7 +114,7 @@ public class SignInActivity extends AppCompatActivity {
                         finishAffinity();
                     } else {
                         loadingDialog.endLoadingDialog();
-                        errorDialog.startErrorDialog(MESSAGE_SIGN_IN_ERROR);
+                        notificationDialog.startErrorDialog(MESSAGE_SIGN_IN_ERROR);
                     }
                 }
             });

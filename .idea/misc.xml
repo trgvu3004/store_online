@@ -13,6 +13,7 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_line_textview_sign_in_with.xml" value="0.17735042735042736" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_account_dialog.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_error_dialog.xml" value="0.1751054852320675" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_successful_dialog.xml" value="0.17172995780590716" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_white_corner_edt_account.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1751054852320675" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_error.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_loading.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_password_change.xml" value="0.18" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_successful.xml" value="0.1606837606837607" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_home_page.xml" value="0.22" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_setting.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/menu/menu_bottom.xml" value="0.1641025641025641" />

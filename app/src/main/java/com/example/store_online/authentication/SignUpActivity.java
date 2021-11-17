@@ -11,20 +11,19 @@ import android.widget.EditText;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
-import com.example.store_online.dialog.ErrorDialog;
+import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
     private Button btnSignUp;
     private EditText edtEmail, edtPassword, edtRe_enterPassword;
     private FirebaseAuth mAuth;
     private LoadingDialog loadingDialog;
-    private ErrorDialog errorDialog;
+    private NotificationDialog notificationDialog;
     private String MESSAGE_SIGN_UP_ERROR = "Please double check your email address or password!";
 
     @Override
@@ -36,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         //inti dialog
         loadingDialog = new LoadingDialog(SignUpActivity.this);
-        errorDialog = new ErrorDialog(this);
+        notificationDialog = new NotificationDialog(this);
         //mapping
         mapping();
         //event
@@ -73,7 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
                         loadingDialog.endLoadingDialog();
                         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                     } else {
-                        errorDialog.startErrorDialog(MESSAGE_SIGN_UP_ERROR);
+                        notificationDialog.startErrorDialog(MESSAGE_SIGN_UP_ERROR);
                     }
                 }
             });

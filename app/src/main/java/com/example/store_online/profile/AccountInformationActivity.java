@@ -1,26 +1,23 @@
 package com.example.store_online.profile;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.store_online.R;
 import com.example.store_online.data_models.AccountInformation;
-import com.example.store_online.dialog.LoadingDialog;
+import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.PasswordChangeDialog;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +33,7 @@ public class AccountInformationActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private PasswordChangeDialog passwordChangeDialog;
+    private NotificationDialog notificationDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +44,9 @@ public class AccountInformationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
-        //
+        //init dialog
         passwordChangeDialog = new PasswordChangeDialog(this);
+        notificationDialog = new NotificationDialog(this);
         //load acount infor from firebase
         loadAccountInformation();
         //set return screen
@@ -109,6 +108,26 @@ public class AccountInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 passwordChangeDialog.startAddInforDialog();
+            }
+        });
+        vgPasswordReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendPasswordResetEmail();
+            }
+        });
+    }
+
+    private void SendPasswordResetEmail() {
+        mAuth.sendPasswordResetEmail(mUser.getEmail()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    notificationDialog.startSuccessfulDialog(getResources().getString(R.string.sendEmailSuccess));
+                }
+                else {
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.sendEmailFailed));
+                }
             }
         });
     }
