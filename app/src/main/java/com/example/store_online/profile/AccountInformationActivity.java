@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.store_online.R;
 import com.example.store_online.data_models.AccountInformation;
+import com.example.store_online.dialog.LoadingDialog;
+import com.example.store_online.dialog.PasswordChangeDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -33,7 +35,7 @@ public class AccountInformationActivity extends AppCompatActivity {
     private FirebaseUser mUser;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
-    private AccountInformation account;
+    private PasswordChangeDialog passwordChangeDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,8 @@ public class AccountInformationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
+        //
+        passwordChangeDialog = new PasswordChangeDialog(this);
         //load acount infor from firebase
         loadAccountInformation();
         //set return screen
@@ -104,7 +108,7 @@ public class AccountInformationActivity extends AppCompatActivity {
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                passwordChangeDialog.startAddInforDialog();
             }
         });
     }

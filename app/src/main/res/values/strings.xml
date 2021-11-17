@@ -49,5 +49,10 @@
     <string name="txt_password_change">Đổi mật khẩu</string>
     <string name="txt_password_reset">Quên mật khẩu</string>
     <string name="account_Information">Thông tin tài khoản</string>
+    <string name="hint_new_password">Mật khẩu mới</string>
+    <string name="field_empty">Không được để trống trường này!</string>
+    <string name="field_do_not_match">Mật khẩu không khớp!</string>
+    <string name="reAuthentication">Mật khẩu hiện tại không đúng!</string>
+    <string name="PasswordChangeFailed">Đổi mật khẩu không thành công!</string>
 
 </resources>
