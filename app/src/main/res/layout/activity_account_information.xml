@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e4e7"
+    android:orientation="vertical"
+    tools:context=".profile.AccountInformationActivity">
+
+    <LinearLayout
+        android:id="@+id/vg_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_account_circle_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_full_name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_full_name"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_favorite_24" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_nickname"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_nickname"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_gender_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_gender"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_gender"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_calendar_today_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_birthday"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_birthday"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_phone_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_phone_number"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_phone_number"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_email_24" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_email"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_add_email"
+                android:textColor="@color/colorSilver"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_password_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_lock_24" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_password_change"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/vg_password_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_mark_email_reset_password_unread_24" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_password_reset"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+    </LinearLayout>
+</LinearLayout>

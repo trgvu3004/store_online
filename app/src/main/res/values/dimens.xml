@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?><resources>    <dimen name="edt_corner_bg">16dp</dimen>    <dimen name="edt_width_bg">1dp</dimen>    <dimen name="btn_text_size_setting">18sp</dimen></resources>
+<?xml version="1.0" encoding="utf-8"?><resources>    <dimen name="edt_corner_bg">16dp</dimen>    <dimen name="edt_width_bg">1dp</dimen>    <dimen name="btn_text_size_setting">18sp</dimen>    <dimen name="txt_item_setting">18sp</dimen></resources>

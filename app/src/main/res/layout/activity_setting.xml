@@ -7,25 +7,40 @@
     android:background="@color/white"
     tools:context=".profile.SettingActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbSetting"
+    <TextView
+        android:id="@+id/txtInforUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        app:titleTextColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/txtInformationUser"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_item_setting"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintBottom_toBottomOf="@+id/txtInforUser"
+        app:layout_constraintEnd_toEndOf="@+id/txtInforUser"
+        app:layout_constraintTop_toTopOf="@+id/txtInforUser" />
 
     <Button
         android:id="@+id/btn_sign_out_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/bg_corner_button_setting"
         android:text="@string/setting_sign_out"
         android:textColor="@color/colorRed"
         android:textSize="@dimen/btn_text_size_setting"
-        android:background="@drawable/bg_corner_button_setting"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

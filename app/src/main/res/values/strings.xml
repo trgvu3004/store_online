@@ -22,9 +22,31 @@
     <string name="setting_sign_out">Đăng xuất</string>
     <string name="setting_title" tools:ignore="ExtraTranslation">Cài Đặt</string>
 
+    <!--List item-->
+    <string-array name="listItemSetting">
+        <item>Thông tin tài khoản</item>
+        <item>Thông tin tài khoản</item>
+        <item>Thông tin tài khoản</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">1003858493882103</string>
     <string name="fb_login_protocol_scheme">fb1003858493882103</string>
+    <string name="txtInformationUser">Thông tin tài khoản</string>
+    <string name="txt_full_name"><![CDATA[Họ & Tên]]></string>
+    <string name="txt_add_full_name">Thêm họ và tên</string>
+    <string name="txt_nickname">Nickname</string>
+    <string name="txt_add_nickname">Thêm nickname</string>
+    <string name="txt_gender">Giới tính</string>
+    <string name="txt_add_gender">Thêm giới tính</string>
+    <string name="txt_birthday">Ngày sinh</string>
+    <string name="txt_add_birthday">Thêm ngày sinh</string>
+    <string name="txt_phone_number">Số điện thoại</string>
+    <string name="txt_add_phone_number">Thêm số điện thoại</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_add_email">Thêm email</string>
+    <string name="txt_password_change">Đổi mật khẩu</string>
+    <string name="txt_password_reset">Quên mật khẩu</string>
 
 </resources>

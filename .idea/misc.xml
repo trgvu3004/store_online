@@ -12,12 +12,18 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_line_textview_sign_in_with.xml" value="0.17735042735042736" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_error_dialog.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1751054852320675" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1751054852320675" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1751054852320675" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_account_information.xml" value="0.1641025641025641" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_main.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_setting.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_sign_in.xml" value="0.18" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/activity_sign_up.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_error.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_loading.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_home_page.xml" value="0.22" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_setting.xml" value="0.1641025641025641" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/menu/menu_bottom.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/menu/menu_home_page.xml" value="0.1641025641025641" />
         <entry key="..\:/AndroidStudioProject/store_online/app/src/main/res/drawable/bg_corner_btn.xml" value="0.17735042735042736" />
         <entry key="..\:/AndroidStudioProject/store_online/app/src/main/res/drawable/bg_corner_btn_sign_in.xml" value="0.17735042735042736" />
