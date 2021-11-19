@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store_online">
         <activity
+            android:name=".profile.edit_profile.EditNickNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".profile.edit_profile.EditFullNameActivity"
             android:exported="false" />
         <activity

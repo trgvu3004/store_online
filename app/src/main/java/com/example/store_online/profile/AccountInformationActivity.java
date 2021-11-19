@@ -15,6 +15,7 @@ import com.example.store_online.data_models.AccountInformation;
 import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.PasswordChangeDialog;
 import com.example.store_online.profile.edit_profile.EditFullNameActivity;
+import com.example.store_online.profile.edit_profile.EditNickNameActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,14 +27,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AccountInformationActivity extends AppCompatActivity {
-    private LinearLayout vgFullName,vgPasswordChange,vgPasswordReset;
-    private TextView txtFullName, txtPhone, txtEmail,txtBirthday,txtNickname,txtGender;
+    private LinearLayout vgFullName, vgNickname, vgPasswordChange, vgPasswordReset;
+    private TextView txtFullName, txtPhone, txtEmail, txtBirthday, txtNickname, txtGender;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private PasswordChangeDialog passwordChangeDialog;
     private NotificationDialog notificationDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,16 +83,24 @@ public class AccountInformationActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     AccountInformation account = snapshot.getValue(AccountInformation.class);
-                    if(account.getBirthday() != null){
+                    if (account.getBirthday() != null) {
                         txtBirthday.setText(account.getBirthday());
+                    } else {
+                        txtBirthday.setText(getResources().getString(R.string.txt_birthday));
                     }
-                    if(account.getGender()!=null){
+                    if (account.getGender() != null) {
                         txtGender.setText(account.getGender());
+                    } else {
+                        txtGender.setText(getResources().getString(R.string.txt_gender));
                     }
-                    if(account.getNickname()!=null){
+                    if (account.getNickname() != null){
                         txtNickname.setText(account.getNickname());
                     }
+                    else{
+                        txtNickname.setText(getResources().getString(R.string.txt_nickname));
+                    }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -104,6 +114,12 @@ public class AccountInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AccountInformationActivity.this, EditFullNameActivity.class));
+            }
+        });
+        vgNickname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AccountInformationActivity.this, EditNickNameActivity.class));
             }
         });
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +140,9 @@ public class AccountInformationActivity extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(mUser.getEmail()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     notificationDialog.startSuccessfulDialog(getResources().getString(R.string.sendEmailSuccess));
-                }
-                else {
+                } else {
                     notificationDialog.startErrorDialog(getResources().getString(R.string.sendEmailFailed));
                 }
             }
@@ -136,6 +151,7 @@ public class AccountInformationActivity extends AppCompatActivity {
 
     private void mapping() {
         vgFullName = findViewById(R.id.vg_full_name);
+        vgNickname = findViewById(R.id.vg_nickname);
         vgPasswordChange = findViewById(R.id.vg_password_change);
         vgPasswordReset = findViewById(R.id.vg_password_reset);
         txtFullName = findViewById(R.id.txt_full_name);
