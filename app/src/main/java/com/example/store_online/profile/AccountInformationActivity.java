@@ -3,10 +3,10 @@ package com.example.store_online.profile;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +14,7 @@ import com.example.store_online.R;
 import com.example.store_online.data_models.AccountInformation;
 import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.PasswordChangeDialog;
+import com.example.store_online.profile.edit_profile.EditFullNameActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 public class AccountInformationActivity extends AppCompatActivity {
     private LinearLayout vgFullName,vgPasswordChange,vgPasswordReset;
     private TextView txtFullName, txtPhone, txtEmail,txtBirthday,txtNickname,txtGender;
-    private Button btnPasswordChange,btnPasswordReset;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FirebaseDatabase database;
@@ -37,6 +37,7 @@ public class AccountInformationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set view
         setContentView(R.layout.activity_account_information);
         //mapping view
         mapping();
@@ -44,11 +45,11 @@ public class AccountInformationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
+        //load acount infor from firebase
+        loadAccountInformation();
         //init dialog
         passwordChangeDialog = new PasswordChangeDialog(this);
         notificationDialog = new NotificationDialog(this);
-        //load acount infor from firebase
-        loadAccountInformation();
         //set return screen
         getSupportActionBar().setTitle(R.string.account_Information);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,11 +62,13 @@ public class AccountInformationActivity extends AppCompatActivity {
             String name = mUser.getDisplayName();
             String mail = mUser.getEmail();
             String phone = mUser.getPhoneNumber();
+
             if (!name.isEmpty()) {
                 txtFullName.setText(name);
             } else {
                 txtFullName.setText(getResources().getString(R.string.txt_add_full_name));
             }
+
             if (!phone.isEmpty()) {
                 txtPhone.setText(phone);
             } else {
@@ -100,8 +103,7 @@ public class AccountInformationActivity extends AppCompatActivity {
         vgFullName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //show dialog add fullname
-
+                startActivity(new Intent(AccountInformationActivity.this, EditFullNameActivity.class));
             }
         });
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {

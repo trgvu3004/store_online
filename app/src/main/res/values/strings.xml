@@ -59,5 +59,9 @@
     <string name="successful">Thành công</string>
     <string name="error">Lỗi</string>
     <string name="sendEmailSuccess">Gửi email đặt lại mật khẩu thành công. Vui lòng kiểm tra email!</string>
+    <string name="btn_save_changes">Lưu thay đổi</string>
+    <string name="edit_information">Chỉnh sửa thông tin</string>
+    <string name="save_successful">Lưu thông tin thành công!</string>
+    <string name="save_failed">Lưu thông tin thất bại!</string>
 
 </resources>
