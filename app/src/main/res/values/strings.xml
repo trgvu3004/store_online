@@ -65,5 +65,9 @@
     <string name="save_failed">Lưu thông tin thất bại!</string>
     <string name="txt_phone_verify">Xác thực</string>
     <string name="txt_code_verify">Nhập mã xác thực</string>
+    <string name="txt_new_email">Nhập email mới...</string>
+    <string name="txt_current_password">Nhập mật khẩu hiện tại ...</string>
+    <string name="txt_current_email">Nhập email hiện tại...</string>
+    <string name="txt_change_email">Đổi Email</string>
 
 </resources>

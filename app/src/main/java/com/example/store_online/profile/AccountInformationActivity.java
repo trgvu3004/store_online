@@ -14,6 +14,7 @@ import com.example.store_online.R;
 import com.example.store_online.data_models.AccountInformation;
 import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.PasswordChangeDialog;
+import com.example.store_online.profile.edit_profile.ChangeEmailAdressActivity;
 import com.example.store_online.profile.edit_profile.EditBirthdayActivity;
 import com.example.store_online.profile.edit_profile.EditFullNameActivity;
 import com.example.store_online.profile.edit_profile.EditGenderActivity;
@@ -69,13 +70,13 @@ public class AccountInformationActivity extends AppCompatActivity {
             String mail = mUser.getEmail();
             String phone = mUser.getPhoneNumber();
 
-            if (!name.isEmpty()) {
+            if (name != null) {
                 txtFullName.setText(name);
             } else {
                 txtFullName.setText(getResources().getString(R.string.txt_add_full_name));
             }
 
-            if (!phone.isEmpty()) {
+            if (phone != null) {
                 txtPhone.setText(phone);
             } else {
                 txtPhone.setText(getResources().getString(R.string.txt_add_phone_number));
@@ -143,6 +144,12 @@ public class AccountInformationActivity extends AppCompatActivity {
                 startActivity(new Intent(AccountInformationActivity.this, EditPhoneNumberActivity.class));
             }
         });
+        vgEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AccountInformationActivity.this, ChangeEmailAdressActivity.class));
+            }
+        });
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,5 +198,11 @@ public class AccountInformationActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        loadAccountInformation();
+        super.onResume();
     }
 }
