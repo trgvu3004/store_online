@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store_online">
         <activity
+            android:name=".profile.edit_profile.EditBirthdayActivity"
+            android:exported="false" />
+        <activity
             android:name=".profile.edit_profile.EditGenderActivity"
             android:exported="false" />
         <activity

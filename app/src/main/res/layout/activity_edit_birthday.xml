@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".profile.edit_profile.EditFullNameActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_birthday"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:paddingStart="20dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+        <EditText
+            android:id="@+id/edt_add_birthday"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner_edt_edit_profile"
+            android:hint="@string/txt_add_birthday"
+            android:imeOptions="actionDone"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+        <ImageView
+            android:id="@+id/img_date_choose"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_edit_calendar_24"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="* Tối thiểu 2 ký tự, không được có ký tự đặc biệt!"
+        android:paddingStart="30dp"/>
+    <Button
+        android:id="@+id/btn_Save_changes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_save_changes"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/bg_corner_btn_edit_profile"/>
+</LinearLayout>
