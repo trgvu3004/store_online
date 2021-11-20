@@ -18,6 +18,7 @@ import com.example.store_online.profile.edit_profile.EditBirthdayActivity;
 import com.example.store_online.profile.edit_profile.EditFullNameActivity;
 import com.example.store_online.profile.edit_profile.EditGenderActivity;
 import com.example.store_online.profile.edit_profile.EditNickNameActivity;
+import com.example.store_online.profile.edit_profile.EditPhoneNumberActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -134,6 +135,12 @@ public class AccountInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AccountInformationActivity.this, EditBirthdayActivity.class));
+            }
+        });
+        vgPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AccountInformationActivity.this, EditPhoneNumberActivity.class));
             }
         });
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {

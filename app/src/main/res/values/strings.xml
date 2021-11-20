@@ -63,5 +63,7 @@
     <string name="edit_information">Chỉnh sửa thông tin</string>
     <string name="save_successful">Lưu thông tin thành công!</string>
     <string name="save_failed">Lưu thông tin thất bại!</string>
+    <string name="txt_phone_verify">Xác thực</string>
+    <string name="txt_code_verify">Nhập mã xác thực</string>
 
 </resources>

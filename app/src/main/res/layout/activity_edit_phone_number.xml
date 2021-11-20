@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".profile.edit_profile.EditFullNameActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_phone_number"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:paddingStart="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_add_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_corner_edt_edit_profile"
+        android:hint="@string/txt_add_phone_number"
+        android:imeOptions="actionDone"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="* Gửi yêu cầu xâc nhận!"
+        android:layout_marginTop="20dp"
+        android:paddingStart="30dp"/>
+    <Button
+        android:id="@+id/btn_Save_changes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_save_changes"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/bg_corner_btn_edit_profile"/>
+</LinearLayout>
