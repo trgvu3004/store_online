@@ -15,6 +15,7 @@ import com.example.store_online.data_models.AccountInformation;
 import com.example.store_online.dialog.NotificationDialog;
 import com.example.store_online.dialog.PasswordChangeDialog;
 import com.example.store_online.profile.edit_profile.EditFullNameActivity;
+import com.example.store_online.profile.edit_profile.EditGenderActivity;
 import com.example.store_online.profile.edit_profile.EditNickNameActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AccountInformationActivity extends AppCompatActivity {
-    private LinearLayout vgFullName, vgNickname, vgPasswordChange, vgPasswordReset;
+    private LinearLayout vgFullName, vgNickname, vgGender, vgPasswordChange, vgPasswordReset;
     private TextView txtFullName, txtPhone, txtEmail, txtBirthday, txtNickname, txtGender;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
@@ -93,10 +94,9 @@ public class AccountInformationActivity extends AppCompatActivity {
                     } else {
                         txtGender.setText(getResources().getString(R.string.txt_gender));
                     }
-                    if (account.getNickname() != null){
+                    if (account.getNickname() != null) {
                         txtNickname.setText(account.getNickname());
-                    }
-                    else{
+                    } else {
                         txtNickname.setText(getResources().getString(R.string.txt_nickname));
                     }
                 }
@@ -120,6 +120,12 @@ public class AccountInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AccountInformationActivity.this, EditNickNameActivity.class));
+            }
+        });
+        vgGender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AccountInformationActivity.this, EditGenderActivity.class));
             }
         });
         vgPasswordChange.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +158,7 @@ public class AccountInformationActivity extends AppCompatActivity {
     private void mapping() {
         vgFullName = findViewById(R.id.vg_full_name);
         vgNickname = findViewById(R.id.vg_nickname);
+        vgGender = findViewById(R.id.vg_gender);
         vgPasswordChange = findViewById(R.id.vg_password_change);
         vgPasswordReset = findViewById(R.id.vg_password_reset);
         txtFullName = findViewById(R.id.txt_full_name);
