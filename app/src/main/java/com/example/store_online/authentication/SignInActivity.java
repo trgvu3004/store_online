@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
 import com.example.store_online.dialog.NotificationDialog;
-import com.example.store_online.dialog.LoadingDialog;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -42,7 +41,6 @@ public class SignInActivity extends AppCompatActivity {
     private Button btnSignIn;
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
-    private LoadingDialog loadingDialog;
     private NotificationDialog notificationDialog;
     private FloatingActionButton btnGoogle;
     private String MESSAGE_SIGN_IN_ERROR = "Incorrect account or password!";
@@ -63,7 +61,6 @@ public class SignInActivity extends AppCompatActivity {
         //init fb
         FacebookSdk.sdkInitialize(getApplicationContext());
         //init dialog
-        loadingDialog = new LoadingDialog(SignInActivity.this);
         notificationDialog = new NotificationDialog(this);
         //
         requestGoogle();
@@ -104,16 +101,16 @@ public class SignInActivity extends AppCompatActivity {
         } else if (password.isEmpty()) {
             edtPassword.setError("Email is not empty!");
         } else {
-            loadingDialog.startLoadingDialog();
+            notificationDialog.startLoadingDialog();
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        loadingDialog.endLoadingDialog();
+                        notificationDialog.endLoadingDialog();
                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
                         finishAffinity();
                     } else {
-                        loadingDialog.endLoadingDialog();
+                        notificationDialog.endLoadingDialog();
                         notificationDialog.startErrorDialog(MESSAGE_SIGN_IN_ERROR);
                     }
                 }

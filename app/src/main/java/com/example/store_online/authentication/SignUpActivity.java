@@ -12,7 +12,6 @@ import android.widget.EditText;
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
 import com.example.store_online.dialog.NotificationDialog;
-import com.example.store_online.dialog.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,7 +21,6 @@ public class SignUpActivity extends AppCompatActivity {
     private Button btnSignUp;
     private EditText edtEmail, edtPassword, edtRe_enterPassword;
     private FirebaseAuth mAuth;
-    private LoadingDialog loadingDialog;
     private NotificationDialog notificationDialog;
     private String MESSAGE_SIGN_UP_ERROR = "Please double check your email address or password!";
 
@@ -34,7 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
         //inti Firebase
         mAuth = FirebaseAuth.getInstance();
         //inti dialog
-        loadingDialog = new LoadingDialog(SignUpActivity.this);
         notificationDialog = new NotificationDialog(this);
         //mapping
         mapping();
@@ -64,12 +61,12 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (!password.equalsIgnoreCase(repassword)) {
             edtRe_enterPassword.setError("Re-enter password does not match!");
         } else {
-            loadingDialog.startLoadingDialog();
+            notificationDialog.startLoadingDialog();
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        loadingDialog.endLoadingDialog();
+                        notificationDialog.endLoadingDialog();
                         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                     } else {
                         notificationDialog.startErrorDialog(MESSAGE_SIGN_UP_ERROR);

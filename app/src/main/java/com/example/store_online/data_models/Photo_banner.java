@@ -1,1 +1,0 @@
-package com.example.store_online.data_models;import android.net.Uri;public class Photo_banner {    public Uri getUri() {        return uri;    }    public void setUri(Uri uri) {        this.uri = uri;    }    public Photo_banner(Uri uri) {        this.uri = uri;    }    public Photo_banner() {    }    private Uri uri;}

@@ -12,13 +12,13 @@ import android.widget.TextView;
 
 import com.example.store_online.R;
 import com.example.store_online.authentication.SignInActivity;
-import com.example.store_online.dialog.LoadingDialog;
+import com.example.store_online.dialog.NotificationDialog;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingActivity extends AppCompatActivity {
     private Button btnSignOut;
     private FirebaseAuth mAuth;
-    private LoadingDialog loadingDialog;
+    private NotificationDialog notificationDialog;
     private TextView txtUserInformation;
 
     @Override
@@ -30,7 +30,7 @@ public class SettingActivity extends AppCompatActivity {
         //init firebase
         mAuth = FirebaseAuth.getInstance();
         //int lodding dialog
-        loadingDialog = new LoadingDialog(this);
+        notificationDialog = new NotificationDialog(this);
         //set ToolBar
         getSupportActionBar().setTitle(R.string.setting_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -42,9 +42,9 @@ public class SettingActivity extends AppCompatActivity {
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingDialog.startLoadingDialog();
+                notificationDialog.startLoadingDialog();
                 mAuth.signOut();
-                loadingDialog.endLoadingDialog();
+                notificationDialog.endLoadingDialog();
                 startActivity(new Intent(SettingActivity.this, SignInActivity.class));
                 finishAffinity();
             }
