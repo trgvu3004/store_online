@@ -72,6 +72,7 @@ public class EditPhoneNumberActivity extends AppCompatActivity {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                                 FirebaseUser mUser = mAuth.getCurrentUser();
+                                assert mUser != null;
                                 mUser.updatePhoneNumber(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

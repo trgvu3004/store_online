@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setEvent() {
-        adapter=new ViewPagerAdapter(this);
+        adapter = new ViewPagerAdapter(this);
         //set adapter for viewpage2
         viewPager2.setAdapter(adapter);
         //set Event change page
@@ -46,11 +46,10 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
             }
-
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                switch (position){
+                switch (position) {
                     case 0:
                         bottomNavigationView.getMenu().findItem(R.id.menu_home_page).setChecked(true);
                         CURRENT_FRAGMENT = 0;
@@ -75,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_home_page:
-                       viewPager2.setCurrentItem(0);
-                       getSupportActionBar().setTitle(R.string.app_name);
+                        viewPager2.setCurrentItem(0);
+                        getSupportActionBar().setTitle(R.string.app_name);
                         break;
                     case R.id.menu_category:
                         viewPager2.setCurrentItem(1);
@@ -93,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mapping() {
-        viewPager2=findViewById(R.id.view_page_main);
-        bottomNavigationView=findViewById(R.id.navigation_bottom);
+        viewPager2 = findViewById(R.id.view_page_main);
+        bottomNavigationView = findViewById(R.id.navigation_bottom);
     }
 
     @Override
     public void onBackPressed() {
-        switch (CURRENT_FRAGMENT){
+        switch (CURRENT_FRAGMENT) {
             case 0:
                 finishAffinity();
                 break;

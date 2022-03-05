@@ -83,11 +83,12 @@ public class AccountInformationActivity extends AppCompatActivity {
             }
             txtEmail.setText(mail);
             String UID = mUser.getUid();
-            myRef = database.getReference("Account");
+            myRef = database.getReference("account");
             myRef.child(UID).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     AccountInformation account = snapshot.getValue(AccountInformation.class);
+                    assert account != null;
                     if (account.getBirthday() != null) {
                         txtBirthday.setText(account.getBirthday());
                     } else {
