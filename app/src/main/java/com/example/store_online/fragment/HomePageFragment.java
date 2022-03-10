@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,17 @@ public class HomePageFragment extends Fragment {
     private ViewPager2 viewPager2;
     private CircleIndicator3 circleIndicator3;
     private List<PhotoBanner> listPhoto;
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (viewPager2.getCurrentItem() == listPhoto.size() - 1) {
+                viewPager2.setCurrentItem(0);
+            } else {
+                viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,9 +56,17 @@ public class HomePageFragment extends Fragment {
         setHasOptionsMenu(true);
         //
         listPhoto = getListPhoto();
-        PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getActivity(),R.layout.item_banner,listPhoto);
+        PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getContext(), listPhoto);
         viewPager2.setAdapter(photoBannerAdapter);
         circleIndicator3.setViewPager(viewPager2);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                handler.removeCallbacks(runnable);
+                handler.postDelayed(runnable,3000);
+            }
+        });
         return view;
     }
 
@@ -63,7 +83,7 @@ public class HomePageFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_search:
                 break;
             case R.id.menu_notification:
@@ -73,9 +93,13 @@ public class HomePageFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-    private List<PhotoBanner> getListPhoto (){
+
+    private List<PhotoBanner> getListPhoto() {
         List<PhotoBanner> photoBanners = new ArrayList<>();
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("banner");
+        photoBanners.add(new PhotoBanner(R.drawable.ic_bn1));
+        photoBanners.add(new PhotoBanner(R.drawable.ic_bn2));
+        photoBanners.add(new PhotoBanner(R.drawable.ic_bn3));
+        /*DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("banner");
         mRef.child("banner_home_page").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -87,7 +111,19 @@ public class HomePageFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
         return photoBanners;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable,3000);
     }
 }
