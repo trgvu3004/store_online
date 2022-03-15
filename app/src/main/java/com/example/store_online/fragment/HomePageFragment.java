@@ -19,8 +19,10 @@ import android.view.ViewGroup;
 
 import com.example.store_online.R;
 import com.example.store_online.adapter.CategoryAdapter;
+import com.example.store_online.adapter.FeaturedCategoryAdapter;
 import com.example.store_online.adapter.PhotoBannerAdapter;
 import com.example.store_online.data_models.Category;
+import com.example.store_online.data_models.FeaturedCategory;
 import com.example.store_online.data_models.PhotoBanner;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,8 +38,10 @@ import me.relex.circleindicator.CircleIndicator3;
 public class HomePageFragment extends Fragment {
     private View view;
     private ViewPager2 viewPager2;
+    private RecyclerView rvFeaturedCategory;
     private CircleIndicator3 circleIndicator3;
     private List<PhotoBanner> listPhoto;
+    private List<FeaturedCategory> featuredCategoryList;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -61,6 +65,7 @@ public class HomePageFragment extends Fragment {
         setHasOptionsMenu(true);
         //
         listPhoto = getListPhoto();
+        featuredCategoryList = getFeaturedCategoryList();
         //load banner
         PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getContext(), listPhoto);
         viewPager2.setAdapter(photoBannerAdapter);
@@ -70,16 +75,20 @@ public class HomePageFragment extends Fragment {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 handler.removeCallbacks(runnable);
-                handler.postDelayed(runnable,3000);
+                handler.postDelayed(runnable, 3000);
             }
         });
-
+        FeaturedCategoryAdapter featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),1, RecyclerView.HORIZONTAL, false);
+        rvFeaturedCategory.setLayoutManager(layoutManager);
+        rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
         return view;
     }
 
     private void mapping() {
         viewPager2 = view.findViewById(R.id.list_img_banner);
         circleIndicator3 = view.findViewById(R.id.circleIndicator);
+        rvFeaturedCategory = view.findViewById(R.id.rvFeaturedCategory);
     }
 
     @Override
@@ -99,6 +108,16 @@ public class HomePageFragment extends Fragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private List<FeaturedCategory> getFeaturedCategoryList() {
+        List<FeaturedCategory> featuredCategoryLists = new ArrayList<>();
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        return featuredCategoryLists;
     }
 
     private List<PhotoBanner> getListPhoto() {
@@ -131,6 +150,6 @@ public class HomePageFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        handler.postDelayed(runnable,3000);
+        handler.postDelayed(runnable, 3000);
     }
 }
