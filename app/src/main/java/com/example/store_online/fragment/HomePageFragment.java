@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Handler;
@@ -15,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.store_online.R;
+import com.example.store_online.adapter.CategoryAdapter;
 import com.example.store_online.adapter.PhotoBannerAdapter;
+import com.example.store_online.data_models.Category;
 import com.example.store_online.data_models.PhotoBanner;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +61,7 @@ public class HomePageFragment extends Fragment {
         setHasOptionsMenu(true);
         //
         listPhoto = getListPhoto();
+        //load banner
         PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getContext(), listPhoto);
         viewPager2.setAdapter(photoBannerAdapter);
         circleIndicator3.setViewPager(viewPager2);
@@ -67,6 +73,7 @@ public class HomePageFragment extends Fragment {
                 handler.postDelayed(runnable,3000);
             }
         });
+
         return view;
     }
 
