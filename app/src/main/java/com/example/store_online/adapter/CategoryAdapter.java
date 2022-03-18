@@ -10,16 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.store_online.R;
 import com.example.store_online.data_models.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryHolder> {
     private Context context;
-    private List<Category> categoryList;
+    private ArrayList<Category> categoryList;
 
-    public CategoryAdapter(Context context, List<Category> categoryList) {
+    public CategoryAdapter(Context context, ArrayList<Category> categoryList) {
         this.context = context;
         this.categoryList = categoryList;
     }
@@ -34,8 +36,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryHolder holder, int position) {
         Category category = categoryList.get(position);
-        holder.imgCategory.setImageResource(category.getResourceID());
         holder.txtName.setText(category.getName());
+        Glide.with(context).load(category.getImage()).error(R.drawable.ic_bn2).into(holder.imgCategory);
     }
 
     @Override

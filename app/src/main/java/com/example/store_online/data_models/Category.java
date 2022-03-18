@@ -1,15 +1,33 @@
 package com.example.store_online.data_models;
 
 public class Category {
-    private int resourceID;
+    private String id;
+    private String image;
     private String name;
 
-    public int getResourceID() {
-        return resourceID;
+    public Category(String id, String image, String name) {
+        this.id = id;
+        this.image = image;
+        this.name = name;
     }
 
-    public void setResourceID(int resourceID) {
-        this.resourceID = resourceID;
+    public Category() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {
@@ -19,11 +37,4 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Category(int resourceID, String name) {
-        this.resourceID = resourceID;
-        this.name = name;
-    }
-
-
 }
