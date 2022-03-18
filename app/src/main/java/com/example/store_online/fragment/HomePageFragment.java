@@ -3,6 +3,7 @@ package com.example.store_online.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,9 +22,12 @@ import com.example.store_online.R;
 import com.example.store_online.adapter.CategoryAdapter;
 import com.example.store_online.adapter.FeaturedCategoryAdapter;
 import com.example.store_online.adapter.PhotoBannerAdapter;
+import com.example.store_online.adapter.ProductAdapter;
 import com.example.store_online.data_models.Category;
 import com.example.store_online.data_models.FeaturedCategory;
 import com.example.store_online.data_models.PhotoBanner;
+import com.example.store_online.data_models.Products;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,10 +42,13 @@ import me.relex.circleindicator.CircleIndicator3;
 public class HomePageFragment extends Fragment {
     private View view;
     private ViewPager2 viewPager2;
-    private RecyclerView rvFeaturedCategory;
+    private RecyclerView rvFeaturedCategory, rvProducts;
     private CircleIndicator3 circleIndicator3;
     private List<PhotoBanner> listPhoto;
     private List<FeaturedCategory> featuredCategoryList;
+    private ArrayList<Products> productsArrayList;
+    private ArrayList<String> mKey = new ArrayList<>();
+    private ProductAdapter productAdapter;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -66,6 +73,7 @@ public class HomePageFragment extends Fragment {
         //
         listPhoto = getListPhoto();
         featuredCategoryList = getFeaturedCategoryList();
+        productsArrayList = getProductsArrayList();
         //load banner
         PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getContext(), listPhoto);
         viewPager2.setAdapter(photoBannerAdapter);
@@ -82,6 +90,11 @@ public class HomePageFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(),1, RecyclerView.HORIZONTAL, false);
         rvFeaturedCategory.setLayoutManager(layoutManager);
         rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
+        //
+        productAdapter = new ProductAdapter(getContext(),productsArrayList);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,RecyclerView.VERTICAL,false);
+        rvProducts.setLayoutManager(gridLayoutManager);
+        rvProducts.setAdapter(productAdapter);
         return view;
     }
 
@@ -89,6 +102,7 @@ public class HomePageFragment extends Fragment {
         viewPager2 = view.findViewById(R.id.list_img_banner);
         circleIndicator3 = view.findViewById(R.id.circleIndicator);
         rvFeaturedCategory = view.findViewById(R.id.rvFeaturedCategory);
+        rvProducts = view.findViewById(R.id.rvProducs);
     }
 
     @Override
@@ -125,20 +139,48 @@ public class HomePageFragment extends Fragment {
         photoBanners.add(new PhotoBanner(R.drawable.ic_bn1));
         photoBanners.add(new PhotoBanner(R.drawable.ic_bn2));
         photoBanners.add(new PhotoBanner(R.drawable.ic_bn3));
-        /*DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("banner");
-        mRef.child("banner_home_page").addValueEventListener(new ValueEventListener() {
+        return photoBanners;
+    }
+    private ArrayList<Products> getProductsArrayList() {
+        ArrayList<Products> products = new ArrayList<>();
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
+        mRef.child("products").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                PhotoBanner photoBanner = snapshot.getValue(PhotoBanner.class);
-                photoBanners.add(photoBanner);
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Products product = snapshot.getValue(Products.class);
+                products.add(product);
+                mKey.add(snapshot.getKey());
+                productAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                productsArrayList.set(index, snapshot.getValue(Products.class));
+                productAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                productsArrayList.remove(index);
+                mKey.remove(index);
+                productAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
-        return photoBanners;
+        });
+        return products;
     }
 
     @Override
@@ -152,4 +194,7 @@ public class HomePageFragment extends Fragment {
         super.onResume();
         handler.postDelayed(runnable, 3000);
     }
+
+
+
 }

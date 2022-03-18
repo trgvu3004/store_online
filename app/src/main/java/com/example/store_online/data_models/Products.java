@@ -8,11 +8,29 @@ public class Products {
     private String category;
     private int price;
     private String description;
+    private int evaluate;
+    private int sold;
 
     public Products() {
     }
 
-    public Products(String id, String name, String image, double star, String category, int price, String description) {
+    public int getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(int evaluate) {
+        this.evaluate = evaluate;
+    }
+
+    public int getSold() {
+        return sold;
+    }
+
+    public void setSold(int sold) {
+        this.sold = sold;
+    }
+
+    public Products(String id, String name, String image, double star, String category, int price, String description, int evaluate, int sold) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -20,6 +38,8 @@ public class Products {
         this.category = category;
         this.price = price;
         this.description = description;
+        this.evaluate = evaluate;
+        this.sold = sold;
     }
 
     public String getId() {

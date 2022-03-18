@@ -17,6 +17,7 @@
             android:layout_height="32dp"
             android:scaleType="centerCrop"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_store"/>
 
         <TextView

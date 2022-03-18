@@ -13,8 +13,10 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_corner_dialog_error.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_corner_dialog_loading.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_corner_edt_edit_profile.xml" value="0.1751054852320675" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_corner_image_product.xml" value="0.1" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_indicator.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_line_textview_sign_in_with.xml" value="0.17735042735042736" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_slide.xml" value="0.1" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_account_dialog.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_error_dialog.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/bg_title_successful_dialog.xml" value="0.17172995780590716" />
@@ -47,11 +49,11 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_phone_verify.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/dialog_successful.xml" value="0.1606837606837607" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_category.xml" value="0.12631578947368421" />
-        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_home_page.xml" value="0.15" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_home_page.xml" value="0.25" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_banner.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_category.xml" value="0.15" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_featured_category.xml" value="0.12631578947368421" />
-        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_product.xml" value="0.1" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_product.xml" value="0.14" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_setting.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/menu/menu_action_profile.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/menu/menu_bottom.xml" value="0.1641025641025641" />
