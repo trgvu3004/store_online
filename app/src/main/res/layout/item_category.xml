@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/imgCategory"
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:layout_gravity="center"
-            android:src="@drawable/ic_store"/>
+            android:src="@drawable/bg_corner_image"/>
 
         <TextView
             android:id="@+id/txtName"

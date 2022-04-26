@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Store_online">
+        <activity android:name=".product.ProductDetailActivity" android:exported="false"/>
         <activity
             android:name=".profile.edit_profile.ChangeEmailAdressActivity"
             android:exported="false" />

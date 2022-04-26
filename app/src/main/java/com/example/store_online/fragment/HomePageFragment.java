@@ -1,5 +1,7 @@
 package com.example.store_online.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,8 +17,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.store_online.R;
 import com.example.store_online.adapter.CategoryAdapter;
@@ -27,6 +32,7 @@ import com.example.store_online.data_models.Category;
 import com.example.store_online.data_models.FeaturedCategory;
 import com.example.store_online.data_models.PhotoBanner;
 import com.example.store_online.data_models.Products;
+import com.example.store_online.product.ProductDetailActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +55,7 @@ public class HomePageFragment extends Fragment {
     private ArrayList<Products> productsArrayList;
     private ArrayList<String> mKey = new ArrayList<>();
     private ProductAdapter productAdapter;
+    private LinearLayout itemRecyclerViewProduct;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -70,7 +77,7 @@ public class HomePageFragment extends Fragment {
         mapping();
         //set show option menu for fragment
         setHasOptionsMenu(true);
-        //
+        //get list data
         listPhoto = getListPhoto();
         featuredCategoryList = getFeaturedCategoryList();
         productsArrayList = getProductsArrayList();
@@ -86,16 +93,22 @@ public class HomePageFragment extends Fragment {
                 handler.postDelayed(runnable, 3000);
             }
         });
+        //create Featured Category adapter, set adapter for recycler view
         FeaturedCategoryAdapter featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),1, RecyclerView.HORIZONTAL, false);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1, RecyclerView.HORIZONTAL, false);
         rvFeaturedCategory.setLayoutManager(layoutManager);
         rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
-        //
-        productAdapter = new ProductAdapter(getContext(),productsArrayList);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,RecyclerView.VERTICAL,false);
+        //create Product adapter, set adapter for recycler view
+        productAdapter = new ProductAdapter(getContext(), productsArrayList);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false);
         rvProducts.setLayoutManager(gridLayoutManager);
         rvProducts.setAdapter(productAdapter);
+        //set action
+        action();
         return view;
+    }
+    private void action(){
+
     }
 
     private void mapping() {
@@ -141,6 +154,7 @@ public class HomePageFragment extends Fragment {
         photoBanners.add(new PhotoBanner(R.drawable.ic_bn3));
         return photoBanners;
     }
+
     private ArrayList<Products> getProductsArrayList() {
         ArrayList<Products> products = new ArrayList<>();
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
@@ -194,7 +208,4 @@ public class HomePageFragment extends Fragment {
         super.onResume();
         handler.postDelayed(runnable, 3000);
     }
-
-
-
 }

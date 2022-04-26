@@ -8,18 +8,19 @@
     app:cardCornerRadius="10dp">
 
     <LinearLayout
+        android:id="@+id/itemRecyclerViewProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imgProduct"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_width="160dp"
+            android:layout_height="210dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_store" />
+            android:src="@drawable/bg_corner_image" />
 
         <TextView
             android:id="@+id/txtNameProduct"
