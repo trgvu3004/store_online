@@ -49,7 +49,7 @@ public class EditNickNameActivity extends AppCompatActivity {
                 }
                 else {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("Account");
+                    DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("account");
                     mRef.child(user.getUid()).child("nickname").setValue(nickname).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

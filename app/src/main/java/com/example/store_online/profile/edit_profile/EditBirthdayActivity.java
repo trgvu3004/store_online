@@ -56,7 +56,7 @@ public class EditBirthdayActivity extends AppCompatActivity {
                     edtBirthday.setError(getResources().getString(R.string.field_empty));
                 } else {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("Account");
+                    DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("account");
                     mRef.child(user.getUid()).child("birthday").setValue(birthday).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

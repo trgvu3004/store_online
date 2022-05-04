@@ -13,4 +13,5 @@
     <color name="colorWarning">#FFCC00</color>
     <color name="colorSilver">#e9ecef</color>
     <color name="colorSuccess">#07cc65</color>
+    <color name="colorHint">#b7b7a4</color>
 </resources>

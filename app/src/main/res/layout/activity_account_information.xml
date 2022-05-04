@@ -49,7 +49,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_full_name"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -107,7 +106,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_nickname"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -166,7 +164,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_gender"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -225,7 +222,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_birthday"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -284,7 +280,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_phone_number"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -341,7 +336,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_email"
-                android:textColor="@color/colorSilver"
                 android:textSize="18sp" />
         </LinearLayout>
         <LinearLayout

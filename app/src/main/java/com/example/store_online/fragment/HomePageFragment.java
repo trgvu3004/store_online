@@ -55,7 +55,6 @@ public class HomePageFragment extends Fragment {
     private ArrayList<Products> productsArrayList;
     private ArrayList<String> mKey = new ArrayList<>();
     private ProductAdapter productAdapter;
-    private LinearLayout itemRecyclerViewProduct;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -93,18 +92,20 @@ public class HomePageFragment extends Fragment {
                 handler.postDelayed(runnable, 3000);
             }
         });
-        //create Featured Category adapter, set adapter for recycler view
-        FeaturedCategoryAdapter featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1, RecyclerView.HORIZONTAL, false);
-        rvFeaturedCategory.setLayoutManager(layoutManager);
-        rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
         //create Product adapter, set adapter for recycler view
         productAdapter = new ProductAdapter(getContext(), productsArrayList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false);
         rvProducts.setLayoutManager(gridLayoutManager);
         rvProducts.setAdapter(productAdapter);
+
+        //create Featured Category adapter, set adapter for recycler view
+        FeaturedCategoryAdapter featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1, RecyclerView.HORIZONTAL, false);
+        rvFeaturedCategory.setLayoutManager(layoutManager);
+        rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
+
         //set action
-        action();
+       // action();
         return view;
     }
     private void action(){
@@ -139,11 +140,11 @@ public class HomePageFragment extends Fragment {
 
     private List<FeaturedCategory> getFeaturedCategoryList() {
         List<FeaturedCategory> featuredCategoryLists = new ArrayList<>();
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Vourcher"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Dành cho ban"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Hot Sale"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Bán chạy"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Hàng mới"));
+        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Rẻ vô đối"));
         return featuredCategoryLists;
     }
 

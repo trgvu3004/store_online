@@ -55,7 +55,7 @@ public class EditGenderActivity extends AppCompatActivity {
                     gender = radSecret.getText().toString();
                 }
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("Account");
+                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("account");
                 mRef.child(user.getUid()).child("gender").setValue(gender).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
