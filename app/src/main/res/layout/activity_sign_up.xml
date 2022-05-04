@@ -122,7 +122,7 @@
             android:text="@string/txt_have_account" />
 
         <TextView
-            android:id="@+id/txt_sign_up"
+            android:id="@+id/txt_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5sp"

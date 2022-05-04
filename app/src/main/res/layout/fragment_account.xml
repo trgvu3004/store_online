@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorCyan"
+    android:background="@color/colorSilver"
     tools:context=".fragment.AccountFragment"
     tools:ignore="SpeakableTextPresentCheck">
 
@@ -12,6 +12,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:backgroundTint="@color/teal_200"
         android:background="@drawable/bg_layout_banner_account_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

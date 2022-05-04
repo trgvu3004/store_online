@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:layout_marginStart="20dp"
-    app:cardCornerRadius="10dp">
+    android:layout_marginStart="10dp"
+    app:cardCornerRadius="8dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +16,7 @@
             android:id="@+id/imgCategory"
             android:layout_width="150dp"
             android:layout_height="200dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
             android:layout_gravity="center"
             android:src="@drawable/bg_corner_image"/>

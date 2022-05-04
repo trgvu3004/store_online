@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.store_online.MainActivity;
 import com.example.store_online.R;
@@ -18,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class SignUpActivity extends AppCompatActivity {
     private Button btnSignUp;
+    private TextView txtSignIn;
     private EditText edtEmail, edtPassword, edtRe_enterPassword;
     private FirebaseAuth mAuth;
     private NotificationDialog notificationDialog;
@@ -29,7 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         //inti Firebase
         mAuth = FirebaseAuth.getInstance();
         //inti dialog
@@ -45,6 +49,12 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signUp();
+            }
+        });
+        txtSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),SignInActivity.class));
             }
         });
     }
@@ -79,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void mapping() {
         btnSignUp = findViewById(R.id.btn_sign_up);
+        txtSignIn = findViewById(R.id.txt_sign_in);
         edtEmail = findViewById(R.id.edt_sign_up_email);
         edtPassword = findViewById(R.id.edt_sign_up_password);
         edtRe_enterPassword = findViewById(R.id.edt_sign_up_re_enter_password);
