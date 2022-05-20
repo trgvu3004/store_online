@@ -86,7 +86,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         //save product for list product seen
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("products_seen");
-        mRef.child(Objects.requireNonNull(mAuth.getUid())).push().setValue(productsSeen);
+        mRef.child(Objects.requireNonNull(mAuth.getUid())).child(id).setValue(productsSeen);
 
     }
 

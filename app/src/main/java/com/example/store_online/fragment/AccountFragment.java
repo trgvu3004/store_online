@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.store_online.R;
 import com.example.store_online.authentication.SignInActivity;
 import com.example.store_online.data_models.AccountInformation;
+import com.example.store_online.product.ProductSeenActivity;
 import com.example.store_online.profile.SettingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +38,7 @@ public class AccountFragment extends Fragment {
     private FirebaseUser mUser;
     private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
-    private TextView txtNickname, txtCoin, txtRank;
+    private TextView txtNickname, txtCoin, txtRank,txtProductSeen;
     private ImageView imgAvatar;
 
     @Override
@@ -62,6 +63,9 @@ public class AccountFragment extends Fragment {
         layoutSetting.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), SettingActivity.class));
         });
+        txtProductSeen.setOnClickListener(view ->{
+            startActivity(new Intent(getActivity(), ProductSeenActivity.class));
+        });
     }
 
     private void mapping() {
@@ -70,6 +74,7 @@ public class AccountFragment extends Fragment {
         txtCoin = view.findViewById(R.id.txtCoin);
         txtRank = view.findViewById(R.id.txtRank);
         imgAvatar = view.findViewById(R.id.imgAvatar);
+        txtProductSeen = view.findViewById(R.id.txtProductSeen);
     }
 
     private void loadAccountInformation() {

@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store_online">
         <activity
+            android:name=".product.ProductSeenActivity"
+            android:exported="false" />
+        <activity
             android:name=".product.DetailCategoryActivity"
             android:exported="false" />
         <activity
