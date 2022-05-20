@@ -14,6 +14,13 @@ import androidx.appcompat.widget.AppCompatRatingBar;
 
 import com.bumptech.glide.Glide;
 import com.example.store_online.R;
+import com.example.store_online.data_models.ProductsSeen;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
 import java.util.Objects;
@@ -21,6 +28,7 @@ import java.util.Objects;
 public class ProductDetailActivity extends AppCompatActivity {
     private TextView txtNameProduct, txtPrice, txtDescription, txtEvaluate, txtSold, txtTotalStar;
     private ImageView imgProduct;
+    private FirebaseAuth mAuth;
     private AppCompatRatingBar rbRatingProduct;
 
     @Override
@@ -38,6 +46,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void mapping() {
+        mAuth = FirebaseAuth.getInstance();
         txtNameProduct = findViewById(R.id.txtNameProduct);
         txtDescription = findViewById(R.id.txtDescription);
         txtEvaluate = findViewById(R.id.txtEvaluate);
@@ -72,6 +81,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         txtTotalStar.setText(String.valueOf(star));
         rbRatingProduct.setRating(Float.parseFloat(String.valueOf(star)));
         Glide.with(this).load(image).error(R.drawable.ic_bn2).into(imgProduct);
+        //save infor product seen
+        ProductsSeen productsSeen = new ProductsSeen(id,name,price,image,star);
+
+        //save product for list product seen
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("products_seen");
+        mRef.child(Objects.requireNonNull(mAuth.getUid())).push().setValue(productsSeen);
+
     }
 
     @Override
