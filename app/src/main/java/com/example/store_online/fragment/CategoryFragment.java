@@ -1,5 +1,6 @@
 package com.example.store_online.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -16,6 +20,8 @@ import android.widget.Toast;
 import com.example.store_online.R;
 import com.example.store_online.adapter.CategoryAdapter;
 import com.example.store_online.data_models.Category;
+import com.example.store_online.product.CartActivity;
+import com.example.store_online.profile.SettingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -40,6 +46,7 @@ public class CategoryFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_category, container, false);
         //
         mapping();
+        setHasOptionsMenu(true);
         //
         categoryList = getCategoryList();
         //Load category
@@ -47,6 +54,7 @@ public class CategoryFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2, RecyclerView.VERTICAL,false);
         rvCategory.setLayoutManager(gridLayoutManager);
         rvCategory.setAdapter(categoryAdapter);
+
         return view;
     }
 
@@ -93,5 +101,20 @@ public class CategoryFragment extends Fragment {
             }
         });
         return categoryLists;
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_category, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_cart:
+                startActivity(new Intent(getActivity(), CartActivity.class));
+                break;
+        }
+        return true;
     }
 }

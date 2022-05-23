@@ -32,6 +32,7 @@ import com.example.store_online.data_models.Category;
 import com.example.store_online.data_models.FeaturedCategory;
 import com.example.store_online.data_models.PhotoBanner;
 import com.example.store_online.data_models.Products;
+import com.example.store_online.product.CartActivity;
 import com.example.store_online.product.ProductDetailActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -133,6 +134,7 @@ public class HomePageFragment extends Fragment {
             case R.id.menu_notification:
                 break;
             case R.id.menu_cart:
+                startActivity(new Intent(getActivity(), CartActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

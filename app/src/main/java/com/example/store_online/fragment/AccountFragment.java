@@ -25,6 +25,7 @@ import com.example.store_online.authentication.SignInActivity;
 import com.example.store_online.data_models.AccountInformation;
 import com.example.store_online.data_models.Products;
 import com.example.store_online.data_models.ProductsSeen;
+import com.example.store_online.product.CartActivity;
 import com.example.store_online.product.ProductSeenActivity;
 import com.example.store_online.profile.SettingActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -131,6 +132,9 @@ public class AccountFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_setting:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
+                break;
+            case R.id.menu_cart:
+                startActivity(new Intent(getActivity(), CartActivity.class));
                 break;
         }
         return true;
