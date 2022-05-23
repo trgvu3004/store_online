@@ -33,6 +33,7 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.1751054852320675" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w1240dp/activity_edit_phone_number.xml" value="0.185546875" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w1240dp/dialog_phone_verify.xml" value="0.16" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w1240dp/item_product_seen.xml" value="0.1765625" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w936dp/activity_edit_birthday.xml" value="0.15" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w936dp/activity_edit_nickname.xml" value="0.15" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout-w936dp/item_featured_category.xml" value="0.15" />
@@ -60,6 +61,7 @@
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_account.xml" value="0.15" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_category.xml" value="0.12631578947368421" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/fragment_home_page.xml" value="0.12" />
+        <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_all_product_seen.xml" value="0.12631578947368421" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_banner.xml" value="0.1641025641025641" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_category.xml" value="0.18" />
         <entry key="..\:/Android Studio Project/store_online/app/src/main/res/layout/item_featured_category.xml" value="0.12631578947368421" />

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.store_online.R;
 import com.example.store_online.adapter.ProductSeenAdapter;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ProductSeenActivity extends AppCompatActivity {
     private RecyclerView rvProductSeen;
@@ -30,6 +32,7 @@ public class ProductSeenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_seen);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         //mapping view
         mapping();
         //load product seen
@@ -77,5 +80,11 @@ public class ProductSeenActivity extends AppCompatActivity {
     private void mapping() {
         mAuth = FirebaseAuth.getInstance();
         rvProductSeen = findViewById(R.id.rvProductSeen);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return true;
     }
 }

@@ -19,9 +19,7 @@ import com.example.store_online.R;
 import com.example.store_online.data_models.ProductsSeen;
 import com.example.store_online.product.ProductDetailActivity;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.PrimitiveIterator;
 
 public class ProductSeenAdapter extends RecyclerView.Adapter<ProductSeenAdapter.ProductSeenViewHolder>{
     private Context context;
