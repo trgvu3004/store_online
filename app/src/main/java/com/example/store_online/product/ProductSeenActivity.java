@@ -26,6 +26,7 @@ public class ProductSeenActivity extends AppCompatActivity {
     private RecyclerView rvProductSeen;
     private ArrayList<ProductsSeen> productsSeenArrayList;
     private ProductSeenAdapter productSeenAdapter;
+    private ArrayList<String> mKey = new ArrayList<>();
     private FirebaseAuth mAuth;
 
     @Override
@@ -51,17 +52,25 @@ public class ProductSeenActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 ProductsSeen products = snapshot.getValue(ProductsSeen.class);
                 productsSeen.add(products);
+                mKey.add(snapshot.getKey());
                 productSeenAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                String key = snapshot.getKey();
+                int index= mKey.indexOf(key);
+                productsSeenArrayList.set(index,snapshot.getValue(ProductsSeen.class));
+                productSeenAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
+                String key = snapshot.getKey();
+                int index= mKey.indexOf(key);
+                productsSeenArrayList.remove(index);
+                mKey.remove(index);
+                productSeenAdapter.notifyDataSetChanged();
             }
 
             @Override
