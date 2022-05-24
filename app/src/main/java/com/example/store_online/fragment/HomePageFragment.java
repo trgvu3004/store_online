@@ -34,6 +34,7 @@ import com.example.store_online.data_models.PhotoBanner;
 import com.example.store_online.data_models.Products;
 import com.example.store_online.product.CartActivity;
 import com.example.store_online.product.ProductDetailActivity;
+import com.example.store_online.product.SearchActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -130,6 +131,7 @@ public class HomePageFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
                 break;
             case R.id.menu_notification:
                 break;

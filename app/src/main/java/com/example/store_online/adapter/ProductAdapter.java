@@ -62,6 +62,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 intent.putExtra("price",productsArrayList.get(position).getPrice());
                 intent.putExtra("sold",productsArrayList.get(position).getSold());
                 intent.putExtra("star",productsArrayList.get(position).getStar());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
