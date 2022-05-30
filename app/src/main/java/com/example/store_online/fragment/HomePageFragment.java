@@ -54,8 +54,9 @@ public class HomePageFragment extends Fragment {
     private CircleIndicator3 circleIndicator3;
     private List<PhotoBanner> listPhoto;
     private List<FeaturedCategory> featuredCategoryList;
+    private FeaturedCategoryAdapter featuredCategoryAdapter;
     private ArrayList<Products> productsArrayList;
-    private ArrayList<String> mKey = new ArrayList<>();
+    private DatabaseReference mRef;
     private ProductAdapter productAdapter;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
@@ -78,11 +79,8 @@ public class HomePageFragment extends Fragment {
         mapping();
         //set show option menu for fragment
         setHasOptionsMenu(true);
-        //get list data
-        listPhoto = getListPhoto();
-        featuredCategoryList = getFeaturedCategoryList();
-        productsArrayList = getProductsArrayList();
         //load banner
+        listPhoto = getListPhoto();
         PhotoBannerAdapter photoBannerAdapter = new PhotoBannerAdapter(getContext(), listPhoto);
         viewPager2.setAdapter(photoBannerAdapter);
         circleIndicator3.setViewPager(viewPager2);
@@ -95,26 +93,30 @@ public class HomePageFragment extends Fragment {
             }
         });
         //create Product adapter, set adapter for recycler view
+        productsArrayList = getProductsArrayList();
         productAdapter = new ProductAdapter(getContext(), productsArrayList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false);
         rvProducts.setLayoutManager(gridLayoutManager);
         rvProducts.setAdapter(productAdapter);
 
         //create Featured Category adapter, set adapter for recycler view
-        FeaturedCategoryAdapter featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
+        featuredCategoryList = getFeaturedCategoryList();
+        featuredCategoryAdapter = new FeaturedCategoryAdapter(getContext(), featuredCategoryList);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1, RecyclerView.HORIZONTAL, false);
         rvFeaturedCategory.setLayoutManager(layoutManager);
         rvFeaturedCategory.setAdapter(featuredCategoryAdapter);
 
         //set action
-       // action();
+        // action();
         return view;
     }
-    private void action(){
+
+    private void action() {
 
     }
 
     private void mapping() {
+        mRef = FirebaseDatabase.getInstance().getReference();
         viewPager2 = view.findViewById(R.id.list_img_banner);
         circleIndicator3 = view.findViewById(R.id.circleIndicator);
         rvFeaturedCategory = view.findViewById(R.id.rvFeaturedCategory);
@@ -143,12 +145,49 @@ public class HomePageFragment extends Fragment {
     }
 
     private List<FeaturedCategory> getFeaturedCategoryList() {
+        ArrayList<String> mKey = new ArrayList<>();
         List<FeaturedCategory> featuredCategoryLists = new ArrayList<>();
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Dành cho ban"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Hot Sale"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Bán chạy"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Hàng mới"));
-        featuredCategoryLists.add(new FeaturedCategory(R.drawable.ic_bn2, "Rẻ vô đối"));
+        mRef.child("featured_category").addChildEventListener(new ChildEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                FeaturedCategory featuredCategory = snapshot.getValue(FeaturedCategory.class);
+                featuredCategoryLists.add(featuredCategory);
+                mKey.add(snapshot.getKey());
+                featuredCategoryAdapter.notifyDataSetChanged();
+
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                featuredCategoryLists.add(index, snapshot.getValue(FeaturedCategory.class));
+                featuredCategoryAdapter.notifyDataSetChanged();
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                featuredCategoryLists.remove(index);
+                mKey.remove(key);
+                featuredCategoryAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return featuredCategoryLists;
     }
 
@@ -161,9 +200,10 @@ public class HomePageFragment extends Fragment {
     }
 
     private ArrayList<Products> getProductsArrayList() {
+        ArrayList<String> mKey = new ArrayList<>();
         ArrayList<Products> products = new ArrayList<>();
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
         mRef.child("products").addChildEventListener(new ChildEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Products product = snapshot.getValue(Products.class);
@@ -172,6 +212,7 @@ public class HomePageFragment extends Fragment {
                 productAdapter.notifyDataSetChanged();
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String key = snapshot.getKey();
@@ -180,6 +221,7 @@ public class HomePageFragment extends Fragment {
                 productAdapter.notifyDataSetChanged();
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 String key = snapshot.getKey();

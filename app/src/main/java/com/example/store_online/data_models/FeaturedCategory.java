@@ -1,15 +1,25 @@
 package com.example.store_online.data_models;
 
 public class FeaturedCategory {
-    private int resourceID;
+    private String id;
     private String name;
+    private String image;
 
-    public int getResourceID() {
-        return resourceID;
+    public FeaturedCategory() {
     }
 
-    public void setResourceID(int resourceID) {
-        this.resourceID = resourceID;
+    public FeaturedCategory(String id, String name, String image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -20,10 +30,11 @@ public class FeaturedCategory {
         this.name = name;
     }
 
-    public FeaturedCategory(int resourceID, String name) {
-        this.resourceID = resourceID;
-        this.name = name;
+    public String getImage() {
+        return image;
     }
 
-
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
