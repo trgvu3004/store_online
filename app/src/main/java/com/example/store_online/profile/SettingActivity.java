@@ -3,6 +3,8 @@ package com.example.store_online.profile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,7 +21,7 @@ public class SettingActivity extends AppCompatActivity {
     private Button btnSignOut;
     private FirebaseAuth mAuth;
     private NotificationDialog notificationDialog;
-    private TextView txtUserInformation;
+    private ConstraintLayout layoutAccountInformation, layoutListAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +51,24 @@ public class SettingActivity extends AppCompatActivity {
                 finishAffinity();
             }
         });
-        txtUserInformation.setOnClickListener(new View.OnClickListener() {
+        layoutAccountInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SettingActivity.this, AccountInformationActivity.class));
+            }
+        });
+        layoutListAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingActivity.this, AddressActivity.class));
             }
         });
     }
 
     private void mapping() {
         btnSignOut = findViewById(R.id.btn_sign_out_setting);
-        txtUserInformation = findViewById(R.id.txtInforUser);
+        layoutAccountInformation = findViewById(R.id.layoutAccountInformation);
+        layoutListAddress = findViewById(R.id.layoutListAddress);
     }
 
     @Override
