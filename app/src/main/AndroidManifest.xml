@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store_online">
         <activity
-            android:name=".profile.AddressActivity"
+            android:name=".profile.address.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.address.AddressActivity"
             android:exported="false" />
         <activity
             android:name=".product.SearchActivity"

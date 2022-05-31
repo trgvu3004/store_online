@@ -1,14 +1,17 @@
-package com.example.store_online.profile;
+package com.example.store_online.profile.address;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.store_online.R;
 import com.example.store_online.adapter.AddressAdapter;
@@ -26,6 +29,7 @@ import java.util.Objects;
 public class AddressActivity extends AppCompatActivity {
     private RecyclerView rvListAddress;
     private AddressAdapter addressAdapter;
+    private ConstraintLayout layoutAddAddress;
     private FirebaseAuth mAuth;
     private DatabaseReference mRef;
 
@@ -33,6 +37,7 @@ public class AddressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
+        setTitle("Sổ Địa Chỉ");
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         mapping();
         //get list address form firebase
@@ -41,6 +46,17 @@ public class AddressActivity extends AppCompatActivity {
         LinearLayoutManager addressLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvListAddress.setLayoutManager(addressLayoutManager);
         rvListAddress.setAdapter(addressAdapter);
+        //
+        action();
+    }
+
+    private void action() {
+        layoutAddAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AddAddressActivity.class));
+            }
+        });
     }
 
     private ArrayList<Address> getDataAddress() {
@@ -90,6 +106,7 @@ public class AddressActivity extends AppCompatActivity {
 
     private void mapping() {
         rvListAddress = findViewById(R.id.rvListAddress);
+        layoutAddAddress = findViewById(R.id.layoutAddAddress);
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference();
     }

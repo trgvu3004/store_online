@@ -10,11 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.store_online.R;
 import com.example.store_online.authentication.SignInActivity;
 import com.example.store_online.dialog.NotificationDialog;
+import com.example.store_online.profile.address.AddressActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingActivity extends AppCompatActivity {

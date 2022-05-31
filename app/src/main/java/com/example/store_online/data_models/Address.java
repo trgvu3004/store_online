@@ -1,7 +1,6 @@
 package com.example.store_online.data_models;
 
 public class Address {
-    private String id;
     private String name;
     private String phone;
     private String home;
@@ -10,20 +9,11 @@ public class Address {
     public Address() {
     }
 
-    public Address(String id, String name, String phone, String home, String address) {
-        this.id = id;
+    public Address( String name, String phone, String home, String address) {
         this.name = name;
         this.phone = phone;
         this.home = home;
         this.address = address;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
